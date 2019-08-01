@@ -1,6 +1,7 @@
-from django.conf.urls import include, url
-
+from django.urls import include, re_path
+from django.conf.urls import url
 from django.contrib import admin
+
 admin.autodiscover()
 
 import etl.views
@@ -10,6 +11,6 @@ import etl.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^$', etl.views.index, name='index'),
-    url(r'^admin/', include(admin.site.urls)),
+    re_path(r'^json$', etl.views.index),
+    re_path(r'^admin/', admin.site.urls),
 ]

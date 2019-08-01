@@ -15,6 +15,7 @@ whitenoise = "*"
 redis = "*"
 django-heroku = "*"
 mysqlclient = "*"
+python-dateutil = "*"
 
 [requires]
 python_version = "3.6"

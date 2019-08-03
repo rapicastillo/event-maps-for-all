@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 apscheduler = "*"
-django = "*"
+django = ">=1.11"
 pytz = "*"
 requests = "*"
 rq = "*"

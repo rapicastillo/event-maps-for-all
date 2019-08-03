@@ -16,6 +16,11 @@ redis = "*"
 django-heroku = "*"
 mysqlclient = "*"
 python-dateutil = "*"
+rest-framework = "*"
+django-rest-framework = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.6"

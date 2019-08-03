@@ -1,5 +1,4 @@
-from django.urls import re_path
-from django.conf.urls import url
+from django.conf.urls import url, re_path
 from django.contrib import admin
 
 admin.autodiscover()

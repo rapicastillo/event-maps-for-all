@@ -11,7 +11,7 @@ from etl.views import *
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    re_path(r'^events/list$', EventsListView.as_view()),
+    re_path(r'^api/events/list$', EventsListView.as_view()),
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^', FrontendAppView.as_view()),
 ]

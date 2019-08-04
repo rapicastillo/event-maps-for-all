@@ -73,7 +73,21 @@ class MapView extends React.Component {
               width: "100%"
             }}>
               <ZoomControl position='top-left'/>
-              <Layer
+             
+
+            { this.props.clickedItem &&
+              this.renderPopup()
+            }
+          </Map>
+        </div>);
+    }
+}
+
+export default MapView;
+
+/**
+ * 
+ *  <Layer
                   type="circle"
                   id="volunteerData"
                   layout={{
@@ -135,13 +149,4 @@ class MapView extends React.Component {
                   ))
                 }
               </Layer>
-
-            { this.props.clickedItem &&
-              this.renderPopup()
-            }
-          </Map>
-        </div>);
-    }
-}
-
-export default MapView;
+ */

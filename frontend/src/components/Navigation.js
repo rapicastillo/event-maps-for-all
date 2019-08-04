@@ -15,7 +15,11 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
           <img src={WFPLogo} height='80px' className='logo-img'/>
         </a>
         <nav>
-          <ul className='link-list'>            
+          <ul className='link-list'>   
+            <li className='donate-area'>
+              <a href='https://secure.actblue.com/donate/people-powered-justice-for-queens?refcode=map&amount=27' className='donate-button'>Host an Event</a>
+            </li>
+         
             <li className='mobile-nav-open'>
               <a href='javascript: void(null)' onClick={handleNavOpen}>
                 <Icon name='bars' size='2x' />
@@ -25,6 +29,7 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
         </nav>
         {isMobileNavVisible &&
           <nav className='mobile-nav'>
+            
             <div className='mobile-nav-viewport'>
               <a href='javascript: void(null)' className='mobile-nav-close' onClick={handleNavClose}>
                 <Icon name='close' size='2x' />

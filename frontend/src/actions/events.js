@@ -4,8 +4,11 @@ const loadEvents = () => {
     type: "EVENTS_LOAD_EVENTS",
     payload: {
       request: {
-        url: "/cabanforqueens.json",
-        type: "GET"
+        url: "/events/list",
+        type: "GET",
+        params: {
+          format: "json"
+        }
       }
     }
   };

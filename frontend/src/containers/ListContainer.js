@@ -22,23 +22,7 @@ class ListContainer extends React.Component {
 const mapStateToProps = ({ events, search }) => {
     return {
         sourceParam: search.sourceParam,
-        eventsData: Object.values(
-            events.eventsData.filter(item => {
-                const show = search.activeFilters.includes(item.event_type)
-
-                if (!search.bounds) {
-                    return show;
-                }
-        
-                return show && inBounds(
-                        search.bounds.northeast,
-                        search.bounds.southwest,
-                        {lng: item.lng, lat: item.lat});
-
-            })
-            .sort((a, b) => new Date(a.start_datetime) - new Date(b.start_datetime))    
-        )
-        ,
+        eventsData: events.eventsData
     };
 }
 

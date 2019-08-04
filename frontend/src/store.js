@@ -7,7 +7,7 @@ import axiosMiddleware from "redux-axios-middleware";
 
 
 const client = axios.create({
-  baseURL: "https://s3.amazonaws.com/cabanforqueens/",
+  baseURL: "/api",
   // responseType: "json"
 });
 // client.defaults.headers.common["Cache-Control"] = "no-cache";

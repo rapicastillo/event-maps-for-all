@@ -142,6 +142,8 @@ def _store_events(events:list, integration:ActionNetworkIntegration, event_campa
                 zipcode=event["location"]["postal_code"] if "location" in event and "postal_code" in event["location"] else None,
                 datetime_start=start_date, 
                 datetime_end=None, 
+                longitude=event["location"]["location"]["longitude"]  if 'location' in event and 'location' in event['location'] else None,
+                latitude=event['location']["location"]["latitude"] if 'location' in event and 'location' in event['location'] else None,
                 event_type=event_campaign, 
                 is_hidden=event["action_network:hidden"] if "action_network:hidden" in event else None,
                 url=event["browser_url"] if "browser_url" in event else None,

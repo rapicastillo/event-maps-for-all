@@ -30,6 +30,8 @@ class Event(models.Model):
     state=models.CharField(max_length=20,null=True)
     country=models.CharField(max_length=200, default="US",null=True)
     zipcode=models.CharField(max_length=10, null=True)
+    latitude=models.FloatField(null=True)
+    longitude=models.FloatField(null=True)
     datetime_start=models.DateTimeField(null=True)
     datetime_end=models.DateTimeField(null=True)
     event_type = models.ForeignKey(EventType, on_delete=models.SET_NULL, null=True)

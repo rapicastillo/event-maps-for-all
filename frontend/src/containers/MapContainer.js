@@ -31,7 +31,6 @@ class MapContainer extends React.Component {
     }
 
     render() {
-      console.log("sourceParam ~~~>", this.props.sourceParam);
         return (<MapView
           volunteerData={this.props.volunteerData}
           meetData={this.props.meetData}
@@ -40,9 +39,7 @@ class MapContainer extends React.Component {
           clickedItem={this.state.clickedItem}
           handleClosePopup= {this.handleClosePopup.bind(this)}
 
-          showMeet={this.props.activeFilters.includes("Meet Tiffany")}
-          showVolunteer={this.props.activeFilters.includes("Volunteer for Tiffany")}
-          showPhonebank={this.props.activeFilters.includes("Phonebank/Text for Tiffany")}
+          eventsData={this.props.eventsData}
 
           center={this.props.center}
           bounds={this.props.bounds}
@@ -59,46 +56,7 @@ class MapContainer extends React.Component {
 }
 
 const mapStateToProps = ({ events, search }) => ({
-  volunteerData: Object.values(events.eventsData.filter(i => i.event_type == "Volunteer for Tiffany")
-        .sort((a, b) => new Date(a.start_datetime) - new Date(b.start_datetime))
-        .reduce((acc, curr) => {
-            const key = `${curr.lng},${curr.lat}`;
-            if (acc && !acc[key]) {
-                acc[key] = [curr];
-            } else {
-                acc[key] = [...acc[key], curr]
-            }
-            return acc;
-        }, {})
-    )
-  ,
-  meetData: Object.values(
-            events.eventsData.filter(i => i.event_type == "Meet Tiffany")
-              .sort((a, b) => new Date(a.start_datetime) - new Date(b.start_datetime))
-              .reduce((acc, curr) => {
-                  const key = `${curr.lng},${curr.lat}`;
-                  if (acc && !acc[key]) {
-                      acc[key] = [curr];
-                  } else {
-                      acc[key] = [...acc[key], curr]
-                  }
-                  return acc;
-              }, {})
-          )
-  ,
-  phonebankData: Object.values(events.eventsData.filter(i => i.event_type == "Phonebank/Text for Tiffany")
-        .sort((a, b) => new Date(a.start_datetime) - new Date(b.start_datetime))
-        .reduce((acc, curr) => {
-            const key = `${curr.lng},${curr.lat}`;
-            if (acc && !acc[key]) {
-                acc[key] = [curr];
-            } else {
-                acc[key] = [...acc[key], curr]
-            }
-            return acc;
-        }, {})
-    )
-  ,
+  eventsData: events.eventsData,
   activeFilters: search.activeFilters,
   center: search.center,
   bounds: search.bounds,

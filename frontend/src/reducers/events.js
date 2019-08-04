@@ -1,7 +1,8 @@
 import { EVENTS_LOAD_EVENTS } from '../actions/actionTypes';
 
 const defaultState = {
-    eventsData: []
+    eventsData: [],
+    eventTypes: []
 };
 
 export default function (state=defaultState, action) {
@@ -15,7 +16,8 @@ export default function (state=defaultState, action) {
         case "EVENTS_LOAD_EVENTS_SUCCESS":
           return {
               ...state,
-              eventsData: action.payload.data.data
+              eventsData: action.payload.data.events,
+              eventTypes: action.payload.data.event_types
           }
         default:
           return state;

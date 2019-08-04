@@ -1,4 +1,6 @@
 import React from 'react';
+import Icon from 'react-fontawesome';
+
 import SearchSuggestion from './SearchSuggestion';
 import './SearchView.css';
 export default ({
@@ -32,7 +34,10 @@ export default ({
                                 <input type="checkbox" name='f[]' value={eventType.id} 
                                     id={eventType.slug} onChange={handleFilterChange} 
                                     checked={activeFilters.includes(eventType.id.toString()) ? "checked" : false}/>
-                                <label htmlFor={eventType.slug}><span>{eventType.title}</span></label>
+                                <label htmlFor={eventType.slug}>
+                                    {<Icon name='check' color='white' className='event-check' />}
+                                    <span>{eventType.title}</span>
+                                </label>
                             </li>
                         ))
                     }

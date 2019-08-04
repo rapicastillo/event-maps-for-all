@@ -20,7 +20,7 @@
 }
 .navigation .navigation-area a.logo-area:before {
     content: 'Events';
-    background-color: #004b8c;
+    background-color: var(--blue);
     color: white;
     font-weight: 800;
     position: absolute;

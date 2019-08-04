@@ -67,7 +67,6 @@
     margin: 2px 2px 2px 0;
     border-radius: 2px;
     border: 1px solid var(--lightgray);
-    padding: 4px;
 }
 
 .filter-form ul li label {
@@ -96,6 +95,22 @@
 .filter-form ul li input:checked + label {
     /* color: blue; */
     font-weight: 600;
+    background-color: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center; 
+}
+
+.filter-form ul li input + label {
+    padding: 4px;
+    color: gray;
+}
+.filter-form ul li input + label .event-check {
+    display: none
+}
+
+.filter-form ul li input:checked + label .event-check { 
+    display: block;
 }
 
 .filter-form ul li input:checked + label img {

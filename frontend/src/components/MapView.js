@@ -41,7 +41,6 @@ class MapView extends React.Component {
     }
 
     renderPopup () {
-      console.log(this.props.sourceParam , "ZZZ ", this.props);
       const popup = this.props.clickedItem;
       return (
         <Popup coordinates={[popup[0].lng, popup[0].lat]}>
@@ -61,12 +60,12 @@ class MapView extends React.Component {
               this.map = e
             }}
             onStyleLoad={this.handleStyleLoad.bind(this)}
-            style="mapbox://styles/rcscastillo/cjskbazaf34171gnxi5qfdeli"
+            style="https://api.maptiler.com/maps/basic/style.json?key=3WrAwb6fmMyFIncbQee7"
             className='map-view-container'
 
-            zoom={this.props.zoom || [10]}
+            zoom={this.props.zoom || [3]}
             interactive={true}
-            center={this.props.center || [ -73.834, 40.676]}
+            center={this.props.center || [ -98.5795, 39.8283]}
             movingMethod={'easeTo'}
 
             containerStyle={{

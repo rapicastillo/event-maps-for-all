@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'react-fontawesome';
 import './Navigation.css';
 
-import CabanLogo from '../assets/images/caban-logo.png';
+import WFPLogo from '../assets/images/logo.png';
 
 export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisible }) => (
 
@@ -12,29 +12,10 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
           <a href='/' className='big-circle'></a>
         </div>}
         <a href='/' className='logo-area'>
-          <img src={CabanLogo} width='200px' className='logo-img'/>
+          <img src={WFPLogo} height='80px' className='logo-img'/>
         </a>
         <nav>
-          <ul className='link-list'>
-            <li><a href='https://cabanforqueens.com/about'>About</a></li>
-            <li>
-              <a href='https://cabanforqueens.com/issues'>Issues</a>
-            </li>
-            <li>
-              <a href='https://cabanforqueens.com/endorsements'>Endorsements</a>
-            </li>
-            <li>
-              <a href='https://store.cabanforqueens.com?ref=website'>Store</a>
-            </li>
-            <li>
-              <a href='https://map.cabanforqueens.com'>Volunteer</a>
-            </li>
-            {/* <li>
-              <a href='/contact' target='_blank'>Contact</a>
-            </li> */}
-            <li className='donate-area'>
-              <a href='https://secure.actblue.com/donate/people-powered-justice-for-queens?refcode=map&amount=27' className='donate-button'>Contribute</a>
-            </li>
+          <ul className='link-list'>            
             <li className='mobile-nav-open'>
               <a href='javascript: void(null)' onClick={handleNavOpen}>
                 <Icon name='bars' size='2x' />
@@ -51,7 +32,7 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
               <ul>
               <li>
                 <a href='/'>
-                  <img src={CabanLogo} width='200px' />
+                  <img src={WFPLogo} width='200px' />
                 </a>
               </li>
               <li><a href='https://cabanforqueens.com/about'>About</a></li>

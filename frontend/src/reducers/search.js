@@ -9,7 +9,7 @@ import zipcodes from '../assets/data/zipcodes.json';
 
 const defaultState = {
     searchQuery: '',
-    activeFilters: ['Volunteer for Tiffany', 'Phonebank/Text for Tiffany', 'Meet Tiffany'],
+    activeFilters: [],
     zoom: null,
     center: null,
     bounds: null,

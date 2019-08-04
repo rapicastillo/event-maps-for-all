@@ -1,8 +1,6 @@
 import React from 'react';
 import SearchSuggestion from './SearchSuggestion';
 import './SearchView.css';
-import MeetEventsIcon from '../assets/images/meet-events.png';
-import VolunteerEventsIcon from '../assets/images/volunteer-events.png';
 export default ({
   activeFilters,
   eventTypes,
@@ -33,7 +31,7 @@ export default ({
                             <li>
                                 <input type="checkbox" name='f[]' value={eventType.id} 
                                     id={eventType.slug} onChange={handleFilterChange} 
-                                    checked={activeFilters.includes(eventType.id) ? "checked" : false}/>
+                                    checked={activeFilters.includes(eventType.id.toString()) ? "checked" : false}/>
                                 <label htmlFor={eventType.slug}><span>{eventType.title}</span></label>
                             </li>
                         ))

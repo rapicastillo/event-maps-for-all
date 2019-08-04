@@ -9,7 +9,7 @@ import zipcodes from '../assets/data/zipcodes.json';
 
 const defaultState = {
     searchQuery: '',
-    activeFilters: ['Volunteer for Tiffany', 'Phonebank/Text for Tiffany', 'Meet Tiffany'],
+    activeFilters: null,
     zoom: null,
     center: null,
     bounds: null,
@@ -74,6 +74,15 @@ export default function (state=defaultState, action) {
             // searchQuery: action.data.
             bounds: action.data.geometry.bounds,
             center: action.data.geometry.location
+          }
+
+        case "EVENTS_LOAD_EVENTS_SUCCESS":
+          console.log("action.payload.data.event_types", action.payload.data.event_types.map(i => i.id), state.activeFilters)
+          return {
+            ...state, 
+            activeFilters: state.activeFilters == null ? 
+                            action.payload.data.event_types.map(i => i.id.toString()) : 
+                            state.activeFilters
           }
         default: return state;
     }

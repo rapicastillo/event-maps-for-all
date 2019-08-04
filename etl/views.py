@@ -8,7 +8,7 @@ from .serializers import EventSerializer, EventTypeSerializer
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-from etl.models import Event
+from etl.models import Event, EventType
 
 from django.conf import settings
 import os 
@@ -20,7 +20,7 @@ class EventsListView(APIView):
 
         events = Event.objects.filter(datetime_start__year=2019)
         event_types = set([e.event_type for e in events if not e.event_type is None])
-
+        event_types.add(EventType(id=0, title="Volunteer Events", slug="volunteer-event"))
 
         events_serializer = EventSerializer(events, many=True)
         event_type_serializer = EventTypeSerializer(event_types, many=True)

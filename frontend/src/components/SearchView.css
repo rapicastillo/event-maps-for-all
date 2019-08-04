@@ -11,6 +11,7 @@
 }
 .search-form {
     display: flex;
+    
 }
 
 .search-form .search-input {
@@ -57,10 +58,13 @@
 
 .filter-form ul {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5px;
 }
 
 .filter-form ul li {
-    margin: 10px 8px 5px 0;
+    margin: 2px 2px 2px 0;
     border-radius: 2px;
     border: 1px solid var(--lightgray);
     padding: 4px;

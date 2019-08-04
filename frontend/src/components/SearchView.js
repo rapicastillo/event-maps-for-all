@@ -1,18 +1,15 @@
 import React from 'react';
 import SearchSuggestion from './SearchSuggestion';
 import './SearchView.css';
-import MeetEventsIcon from '../assets/images/meet-events.png';
-import VolunteerEventsIcon from '../assets/images/volunteer-events.png';
 export default ({
-  handleSearch,
   activeFilters,
+  eventTypes,
+  handleFilterChange,
+  handleKeyPress,
+  handleSearch,
+  searchQuery,
   searchResults,
   selectResult,
-  handleKeyPress,
-  searchQuery,
-  showVolunteer, 
-  showMeet,
-  handleFilterChange
 }) => (
     <div className='search-container'>
         <div className='search-viewport'>
@@ -29,24 +26,16 @@ export default ({
 
             <form className='filter-form'>
                 <ul>
-                    <li>
-                        <input type="checkbox" name='f[]' value='Volunteer for Tiffany' 
-                            id='Volunteer for Tiffany' onChange={handleFilterChange} 
-                            checked={activeFilters.includes("Volunteer for Tiffany") ? "checked" : false}/>
-                        <label htmlFor='Volunteer for Tiffany'><img src={VolunteerEventsIcon} /><span>Volunteer for Tiffany</span></label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name='f[]' value='Phonebank/Text for Tiffany' 
-                            id='Phonebank/Text for Tiffany' onChange={handleFilterChange} 
-                            checked={activeFilters.includes("Phonebank/Text for Tiffany") ? "checked" : false}/>
-                        <label htmlFor='Phonebank/Text for Tiffany'><img src={VolunteerEventsIcon} /><span>Phonebank/Text for Tiffany</span></label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name='f[]' onChange={handleFilterChange} 
-                                value='Meet Tiffany' id='Meet Tiffany'  checked={activeFilters.includes("Meet Tiffany") ? "checked" : false}/>
-                        <label htmlFor='Meet Tiffany'><img src={MeetEventsIcon} /><span>Meet Tiffany</span></label>
-                    </li>
-
+                    {
+                        eventTypes.map(eventType => (
+                            <li>
+                                <input type="checkbox" name='f[]' value={eventType.id} 
+                                    id={eventType.slug} onChange={handleFilterChange} 
+                                    checked={activeFilters.includes(eventType.id.toString()) ? "checked" : false}/>
+                                <label htmlFor={eventType.slug}><span>{eventType.title}</span></label>
+                            </li>
+                        ))
+                    }
                 </ul>
             </form>
             {searchResults && <SearchSuggestion selectResult={selectResult} searchResults={searchResults}/>}

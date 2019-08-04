@@ -106,54 +106,41 @@ class SearchContainer extends React.Component {
 
   render() {
       return <SearchView
-        searchQuery={this.state.searchQuery}
         activeFilters={this.props.activeFilters}
-        zoomLevel={this.props.zoomLevel}
         center={this.props.center}
-        handleSearch={this.handleSearch.bind(this)}
+        eventTypes={this.props.eventTypes}
+        handleFilterChange={this.handleFilterChange.bind(this)}
         handleKeyPress={this.handleKeyPress.bind(this)}
+        handleSearch={this.handleSearch.bind(this)}
+        searchQuery={this.state.searchQuery}
         searchResults={this.props.searchResults}
         selectResult={this.handleSelect.bind(this)}
-        showMeet={this.props.activeFilters.includes("Meet Tiffany")}
-        showVolunteer={this.props.activeFilters.includes("Volunteer for Tiffany")}
-        handleFilterChange={this.handleFilterChange.bind(this)}
+        zoomLevel={this.props.zoomLevel}
       />;
   }
 }
 
-const mapStateToProps = ({ search }) => ({
-    searchQuery: search.searchQuery,
+const mapStateToProps = ({ search, events }) => ({
     activeFilters: search.activeFilters,
-    zoomLevel: search.zoomLevel,
-    center: search.center,
-    searchResults: search.searchResults.results,
-    chosenResult: search.chosenResult,
     bounds: search.bounds,
-
-    chosenZipcode: search.chosenZipcode,
+    center: search.center,
+    chosenResult: search.chosenResult,
+    chosenZipcode: search.chosenZipcode,  
+    eventTypes: events.eventTypes,
+    searchQuery: search.searchQuery,
+    searchResults: search.searchResults.results,    
+    source: search.sourceParam,
     zipcodes: search.zipcodes,
-    source: search.sourceParam
-  });
+    zoomLevel: search.zoomLevel,
+});
 
 const mapDispatchToProps = (dispatch) => ({
+    clearSearchResults: () => { dispatch(searchAction.clearSearchResults()) },
+    resetFilters: () => { dispatch(searchAction.resetFilters()) },
+    searchZipcode: (text) => { dispatch(searchAction.search(text)); },
+    selectResult: (item) => { dispatch(searchAction.selectResult(item)) },
+    setFilters: (filters) => { dispatch(searchAction.setFilters(filters)) },
+    updateMap: (bounds, center, zoom) => { dispatch(searchAction.updateMap(bounds, center, zoom)) },
     updateSourceParam: (source) => dispatch(searchAction.updateSourceParam(source)),
-    updateMap: (bounds, center, zoom) => {
-      dispatch(searchAction.updateMap(bounds, center, zoom))
-    },
-    searchZipcode: (text) => {
-      dispatch(searchAction.search(text));
-    },
-    clearSearchResults: () => {
-      dispatch(searchAction.clearSearchResults())
-    },
-    selectResult: (item) => {
-      dispatch(searchAction.selectResult(item))
-    },
-    setFilters: (filters) => {
-      dispatch(searchAction.setFilters(filters))
-    },
-    resetFilters: () => {
-      dispatch(searchAction.resetFilters())
-    },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

@@ -1,0 +1,17 @@
+
+.event-list-item {
+    /* border-bottom: 1px dashed gray; */
+    font-family: var(--sans-serif);
+    border-left: 4px solid gray;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    background-color: whitesmoke;
+}
+
+.event-list-item:first-child {
+    margin-top: 0;
+}
+
+.event-list-item:last-child {
+    margin-bottom: 0;
+}

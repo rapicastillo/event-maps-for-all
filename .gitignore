@@ -8,3 +8,4 @@ getting-started/*
 venv/
 .vscode/
 .env
+.DS_Store

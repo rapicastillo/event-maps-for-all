@@ -1,0 +1,9 @@
+.map-area {
+  flex-grow: 1;
+  background-color: var(--bluish-gray);
+  height: 100%;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+}

@@ -1,0 +1,128 @@
+.event-list-item-container {
+    padding: 20px;
+    display: flex;
+}
+
+.event-list-item-container .event-list-item-title {
+    margin-top: 5px;
+    /* margin-bottom: 10px; */
+}
+
+.event-list-item-container .event-list-item-title a {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.event-list-item-container .event-list-item-info {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.event-list-item-container .event-list-item-date {
+    color: var(--darkgray);
+    font-size: 14px;
+    font-weight: 600;
+    width: 65px;
+}
+.event-list-item-container .event-list-date-view {
+    /* border: 1px solid var(--darkgray); */
+    padding: 5px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.event-list-item-container .event-list-item-description {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.event-list-item-container .event-list-day-data {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #333;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.event-list-item-container .event-list-time-data,
+.event-list-item-container .event-list-item-desc span {
+    margin-top: 2px;
+}
+.event-list-item-container .event-list-item-desc {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+}
+.event-list-item-container .event-list-item-desc span {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.event-list-item-container .event-list-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-top: 2px;
+    display: inline-block;
+    text-align: center;
+
+    opacity: 0.6;
+}
+.event-list-item-container .event-list-date-data {
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #333;
+    font-weight: 800;
+}
+
+.event-list-item-container .event-list-month-data {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+    /* text-shadow: 0px 1px 1px rgba(0,0,0,0.2); */
+}
+
+.event-list-item-container .event-list-item-type span {
+    border-radius: 4px;
+    display: inline-block;
+    background-color: var(--lightgray);
+    border: 1px solid var(--lightgray);
+    margin-bottom: 0.3em;
+    padding: 2px 5px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: var(--sans-serif);
+    font-size: 10px;
+}
+
+.event-list-item-container .event-list-item-cta a.event-list-item-cta-btn {
+    background-color: transparent;
+    border-color: var(--blue);
+    border-width: 2px;
+    border-style: solid;
+    color: var(--blue);
+    text-decoration: none;
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.event-list-item-container .event-list-item-cta a.event-list-item-cta-btn:hover {
+    color: white;
+    background-color: var(--blue);
+}

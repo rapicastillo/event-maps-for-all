@@ -79,9 +79,13 @@
     }
 
     .navigation .navigation-area .logo-img {
-        width: 150px !important;
+        width: 220px !important;
     }
 
+    .navigation .navigation-area a.logo-area:before {
+        bottom: 2px;
+        right: 40px;
+    }
 
     .navigation nav {
         margin-bottom: 20px;

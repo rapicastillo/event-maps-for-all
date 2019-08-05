@@ -12,7 +12,7 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
           <a href='/' className='big-circle'></a>
         </div>}
         <a href='/' className='logo-area'>
-          <img src={WFPLogo} height='80px' className='logo-img'/>
+          <img src={WFPLogo} className='logo-img'/>
         </a>
         <nav>
           <ul className='link-list'>   

@@ -43,7 +43,7 @@ class MapView extends React.Component {
     renderPopup () {
       const popup = this.props.clickedItem;
       return (
-        <Popup coordinates={[popup[0].lng, popup[0].lat]}>
+        <Popup coordinates={[popup[0].longitude, popup[0].latitude]}>
           <MapPopupItem
             popup={popup}
             handleClosePopup={this.props.handleClosePopup}
@@ -53,7 +53,9 @@ class MapView extends React.Component {
       )
     }
 
+    // this.props.showVolunteer ? 'visible' : 'none',
     render() {
+        console.log(this.props.eventsData);
         return (<div className='map-area'>
           <Map
             ref={e => {
@@ -73,7 +75,27 @@ class MapView extends React.Component {
               width: "100%"
             }}>
               <ZoomControl position='top-left'/>
-             
+
+              <Layer
+                  type="circle"
+                  id="volunteerData"
+                  layout={{
+                    'visibility': 'visible'
+                  }}
+                  paint={{
+                    "circle-radius": 5,
+                    "circle-color": "#004b8c",
+                    "circle-stroke-width": 2,
+                    "circle-stroke-color": "white"
+                  }}>
+                {
+                  this.props.eventsData.map((events, ind) => (
+                      <Feature key={ind}
+                        coordinates={[events[0].longitude, events[0].latitude]}
+                        onClick={(e)=>{ this.props.handleFeatureClick(events); }}/>
+                  ))
+                }
+              </Layer>
 
             { this.props.clickedItem &&
               this.renderPopup()

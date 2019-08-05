@@ -56,7 +56,22 @@ class MapContainer extends React.Component {
 }
 
 const mapStateToProps = ({ events, search }) => ({
-  eventsData: events.eventsData,
+  eventsData: Object.values(events.eventsData
+    .filter(item => {
+        return !item.event_type && search.activeFilters.includes("0") ||
+               !!item.event_type && search.activeFilters.includes(item.event_type.id.toString());
+    })
+    .sort((a, b) => new Date(a.datetime_start) - new Date(b.datetime_start))
+    .reduce((acc, curr) => {
+        const key = `${curr.longitude},${curr.longitude}`;
+        if (acc && !acc[key]) {
+            acc[key] = [curr];
+        } else {
+            acc[key] = [...acc[key], curr]
+        }
+        return acc;
+    }, {})
+  ),
   activeFilters: search.activeFilters,
   center: search.center,
   bounds: search.bounds,

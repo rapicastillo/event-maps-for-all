@@ -32,11 +32,11 @@ export default ({
                         eventTypes.map(eventType => (
                             <li>
                                 <input type="checkbox" name='f[]' value={eventType.id} 
-                                    id={eventType.slug} onChange={handleFilterChange} 
+                                    id={eventType.id} onChange={handleFilterChange} 
                                     checked={activeFilters.includes(eventType.id.toString()) ? "checked" : false}/>
-                                <label htmlFor={eventType.slug}>
+                                <label htmlFor={eventType.id}>
                                     {<Icon name='check' color='white' className='event-check' />}
-                                    <span>{eventType.title}</span>
+                                    <span>{eventType.display_name}</span>
                                 </label>
                             </li>
                         ))

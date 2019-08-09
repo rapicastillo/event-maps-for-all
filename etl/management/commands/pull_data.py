@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from etl.models import Integration, ActionNetworkIntegration
-from etl.data_source import actionnetwork 
+from etl.data_source import actionnetwork, mobilizeamerica
 
 class Command(BaseCommand):
     help = 'Calls the pull data command'
@@ -11,7 +11,10 @@ class Command(BaseCommand):
         integrations = Integration.objects.filter(is_active=True)
 
         for integration in integrations:
+            print("Pulling action network events: ", integration)
             if hasattr(integration, "actionnetworkintegration"):
-                print("Pulling action network events")
                 an = integration.actionnetworkintegration
                 actionnetwork.pull_actionnetwork_events(an)
+            elif hasattr(integration, "mobilizeamericaintegration"):
+                ma = integration.mobilizeamericaintegration
+                mobilizeamerica.pull_mobilize_america_events(ma)

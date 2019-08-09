@@ -59,7 +59,7 @@ const mapStateToProps = ({ events, search }) => ({
   eventsData: Object.values(events.eventsData
     .filter(item => {
         return !item.event_type && search.activeFilters.includes("0") ||
-               !!item.event_type && search.activeFilters.includes(item.event_type.id.toString());
+               !!item.event_type && !!item.event_type.event_type_mapping && search.activeFilters.includes(item.event_type.event_type_mapping.id.toString());
     })
     .sort((a, b) => new Date(a.datetime_start) - new Date(b.datetime_start))
     .reduce((acc, curr) => {

@@ -77,11 +77,10 @@ export default function (state=defaultState, action) {
           }
 
         case "EVENTS_LOAD_EVENTS_SUCCESS":
-          console.log("action.payload.data.event_types", action.payload.data.event_types.map(i => i.id), state.activeFilters)
           return {
             ...state, 
             activeFilters: state.activeFilters == null ? 
-                            action.payload.data.event_types.map(i => i.id.toString()) : 
+                            action.payload.data.event_type_mappings.map(i => i.id.toString()) : 
                             state.activeFilters
           }
         default: return state;

@@ -45,3 +45,6 @@ class Event(models.Model):
     is_hidden = models.BooleanField(default=False)
     url = models.CharField(max_length=700, null = True)
     integration=models.ForeignKey(Integration, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.title

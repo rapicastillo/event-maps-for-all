@@ -28,12 +28,13 @@ const mapStateToProps = ({ events, search }) => {
             events.eventsData.filter(item => {
                 const show =
                   !item.event_type && search.activeFilters.includes("0") ||
-                  !!item.event_type && search.activeFilters.includes(item.event_type.id.toString())
+                  (!!item.event_type && !!item.event_type.event_type_mapping && search.activeFilters.includes(item.event_type.event_type_mapping.id.toString())
+                )
 
                 if (!search.bounds) {
                     return show;
                 }
-                
+
                 return show && inBounds(
                         search.bounds.northeast,
                         search.bounds.southwest,

@@ -1,12 +1,17 @@
-from etl.models import Event, EventType
+from etl.models import Event, EventType, EventTypeMapping
 from rest_framework import serializers
 
 
+class EventTypeMappingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EventTypeMapping
+        fields = ('id', 'display_name')
 
 class EventTypeSerializer(serializers.ModelSerializer):
+    event_type_mapping = EventTypeMappingSerializer()
     class Meta:
         model = EventType
-        fields = ('id', 'title', 'slug')
+        fields = ('id', 'title', 'slug', 'event_type_mapping')
 
 class EventSerializer(serializers.ModelSerializer):
     event_type = EventTypeSerializer()  

@@ -25,7 +25,7 @@ export default ({ bundled = false, sourceParam, data :
                 <a href={`${url || website}${ sourceParam ? `?source=${sourceParam}` : ''}`} target='_blank'>{name || title}</a>
             </h2>
             <div className='event-list-item-desc event-list-item-event-type'>
-                {event_type && event_type.title}
+                {event_type && event_type.event_type_mapping && event_type.event_type_mapping.display_name || "Volunteer Event"}
             </div>
             <div className='event-list-item-desc'>
                 <img src={ClockIcon} className='event-list-icon' /> <Moment className='event-list-time-data' format="h:mm a" >{ datetime_start }</Moment>

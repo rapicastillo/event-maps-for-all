@@ -183,11 +183,11 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
     actionnetwork_ec = []
 
     for ec in event_campaigns:
-        event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=ec.name)
+        event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=ec['name'])
+        event_type_mapping = event_type_mapping[0]
         actionnetwork_ec.append(
             ActionNetworkEventCampaign(
                 name=ec["name"] if "name" in ec else None,
-                original_name=ec["name"] if "name" in ec else None,
                 slug=slugify(ec["title"]) if "title" in ec else None,
                 integration=integration,
                 title=ec["title"] if "title" in ec else None,

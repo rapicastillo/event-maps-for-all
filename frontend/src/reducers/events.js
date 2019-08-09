@@ -17,7 +17,7 @@ export default function (state=defaultState, action) {
           return {
               ...state,
               eventsData: action.payload.data.events,
-              eventTypes: action.payload.data.event_types
+              eventTypes: action.payload.data.event_type_mappings
           }
         default:
           return state;

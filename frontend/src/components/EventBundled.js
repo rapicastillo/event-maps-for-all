@@ -11,14 +11,14 @@ export default ({ sourceParam, data }) => {
         venue[0] = venue[1].replace("TBD", "");
         venue[1] = "Location to be announced";
     }
-    console.log("~~~~ sourceParam ~~~", sourceParam)
+    
     return (
         <div className='event-bundled-cont'>
             <div className='event-bundled-loc'>
                 <img src={MarkerIcon} />
                 <div>
-                    <h1>{venue[0]}</h1>
-                    <h2>{venue[1]}</h2>
+                    <h1>{venue[0] || data[0].address1 || data[0].city}</h1>
+                    <h2>{venue[1] || `${!data[0].address1 ? '' : data[0].city } ${data[0].state}` }</h2>
                 </div>
             </div>
             <div className='event-bundled-items'>

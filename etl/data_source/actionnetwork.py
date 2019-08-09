@@ -185,6 +185,7 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
         actionnetwork_ec.append(
             ActionNetworkEventCampaign(
                 name=ec["name"] if "name" in ec else None,
+                original_name=ec["name"] if "name" in ec else None,
                 slug=slugify(ec["title"]) if "title" in ec else None,
                 integration=integration,
                 title=ec["title"] if "title" in ec else None,

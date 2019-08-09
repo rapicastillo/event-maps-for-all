@@ -1,7 +1,8 @@
 from etl.models import ActionNetworkIntegration, \
                        ActionNetworkEvent, \
                        ActionNetworkEventCampaign, \
-                       EventType
+                       EventType, \
+                       EventTypeMapping
 from django.utils.text import slugify
 from dateutil.parser import parse
 from datetime import datetime, timedelta
@@ -182,6 +183,7 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
     actionnetwork_ec = []
 
     for ec in event_campaigns:
+        event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=ec.name)
         actionnetwork_ec.append(
             ActionNetworkEventCampaign(
                 name=ec["name"] if "name" in ec else None,
@@ -199,6 +201,7 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
                 host_url=ec["host_url"] if "host_url" in ec else None,
                 an_name=ec["name"] if "name" in ec else None,
                 an_title=ec["title"] if "title" in ec else None,
+                event_type_mapping=event_type_mapping
             )
         )
 
@@ -207,10 +210,11 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
             ec.save()
             print("Creating :: ", ec.events_url)
         except Exception as e:
-            try: 
-                update_ec = ActionNetworkEventCampaign.objects.get(actionnetwork_id=ec.actionnetwork_id)
-                ec.id = update_ec.id
-                ec.save()
-                print("Updating :: ", ec)
-            except Exception as e1:
-                print("Error: ", ec, ec.actionnetwork_id, ec.title, str(e1))
+            print("Error: ", str(e))
+            # try: 
+            #     update_ec = ActionNetworkEventCampaign.objects.get(actionnetwork_id=ec.actionnetwork_id)
+            #     ec.id = update_ec.id
+            #     ec.save()
+            #     print("Updating :: ", ec)
+            # except Exception as e1:
+            #     print("Error: ", ec, ec.actionnetwork_id, ec.title, str(e1))

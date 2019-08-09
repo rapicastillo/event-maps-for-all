@@ -14,9 +14,9 @@ export default ({ bundled = false, sourceParam, data :
 
         <div className='event-list-item-date'>
             <div className='event-list-date-view'>
-                <Moment className='event-list-day-data' format="ddd" add={{ hours: 4 }}>{ datetime_start }</Moment>
-                <Moment className='event-list-date-data' format="DD" add={{ hours: 4 }}>{ datetime_start }</Moment>
-                <Moment className='event-list-month-data' format="MMM" add={{ hours: 4 }}>{ datetime_start }</Moment>
+                <Moment className='event-list-day-data' format="ddd" >{ datetime_start }</Moment>
+                <Moment className='event-list-date-data' format="DD" >{ datetime_start }</Moment>
+                <Moment className='event-list-month-data' format="MMM" >{ datetime_start }</Moment>
             </div>
 
         </div>

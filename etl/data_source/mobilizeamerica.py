@@ -8,7 +8,7 @@ from dateutil.parser import parse
 from datetime import datetime, timedelta
 import requests
 import json
-
+import pytz
 
 # EVENT_CAMPAIGNS_ENDPOINT = "https://api.mobilize.us/v1/organizations/1391/events"
 
@@ -16,10 +16,10 @@ def pull_mobilize_america_events(mobilize_america:MobilizeAmericaIntegration):
     """
     This is informaiton
     """
-    print("Getting Raw Event Campaigns...")
+    # print("Getting Raw Event Campaigns...")
     raw_events = _get_events(mobilize_america.organization_id)
 
-    print("Storing Events...")
+    # print("Storing Events...")
     _store_events(raw_events, mobilize_america)
 
 def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration):
@@ -40,7 +40,7 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
                                 event_type_mapping=event_type_mapping[0]
                             )
 
-    print("mobilize_event_type --> ", mobilize_event_type[0])
+    # print("mobilize_event_type --> ", mobilize_event_type[0])
     return mobilize_event_type[0]
     
 
@@ -54,7 +54,7 @@ def _get_events(organization_id:str):
 
     while has_more:
         req = requests.get(url)
-        print("Pulling %s " % (url))
+        # print("Pulling %s " % (url))
 
         # if page > 2:
         #     has_more=False 
@@ -73,7 +73,7 @@ def _get_events(organization_id:str):
                     has_more = True
                     url=json_data["next"]
                 else:
-                    print ("End of data extraction")
+                    # print ("End of data extraction")
                     has_more = False
                 
         except: 
@@ -88,13 +88,13 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
 
     # By Practice, we get and update events from 7 days ago
     days_ago = datetime.now() - timedelta(days=7)
-    days_ago = days_ago.replace(tzinfo=None)
+    # days_ago = days_ago.replace(tzinfo=None)
     mobilize_events = []
 
     # print(json.dumps(events))
-
+    utc_timezone = pytz.timezone('UTC')
     for event in events:
-
+        locale = pytz.timezone(event['timezone'])
         # if "start_date" not in event:
         #     continue
 
@@ -119,15 +119,24 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
         if event_type is not None:
             mobilize_et = _get_event_type(event_type, integration)
 
+        
+
         for timeslot in event['timeslots']:
             created_date = datetime.fromtimestamp(event['created_date'])
-            created_date = created_date.replace(tzinfo=None)
+            created_date = utc_timezone.localize(created_date)
+
             datetime_start = datetime.fromtimestamp(timeslot['start_date'])
-            datetime_start = datetime_start.replace(tzinfo=None)
+
+            print("datetime_start BEFORE == ", datetime_start)
+            datetime_start = utc_timezone.localize(datetime_start)
+            datetime_start = datetime_start.astimezone(locale).replace(tzinfo=None)
 
             datetime_end = datetime.fromtimestamp(timeslot['end_date'])
-            datetime_end = datetime_end.replace(tzinfo=None)
-            
+            datetime_end = utc_timezone.localize(datetime_end)
+            # datetime_end = locale.localize(datetime_end)
+            print("datetime_start AFTER == ", datetime_start, utc_timezone, "\n")
+            # compare_time = utc_timezone.localize(days_ago)
+            # compare_time = locale.localize(compare_time)
             if datetime_start < days_ago:
                 continue
 
@@ -162,7 +171,7 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
 
         try:
             mobilize_event.save()
-            print("Creating :: ", mobilize_event, mobilize_event.url)
+            # print("Creating :: ", mobilize_event, mobilize_event.url)
         except Exception as e:
             print("Creating Error :: ", str(e))
             try: 

@@ -84,7 +84,7 @@ class MapView extends React.Component {
                   }}
                   paint={{
                     "circle-radius": 5,
-                    "circle-color": "#004b8c",
+                    "circle-color": "#003b4d",
                     "circle-stroke-width": 2,
                     "circle-stroke-color": "white"
                   }}>

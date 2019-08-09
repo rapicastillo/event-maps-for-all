@@ -9,11 +9,15 @@ class Integration(models.Model):
     def __str__(self):
         return '%s' % (self.alias)
 
+class EventTypeMapping(models.Model):
+    display_name=models.CharField(max_length=200, null=True)
+
 class EventType(models.Model):
     name = models.CharField(max_length=200, null=True)
     title = models.CharField(max_length=200, null=True)
     slug = models.CharField(max_length=200, null=True)
     integration=models.ForeignKey(Integration, on_delete=models.SET_NULL, null=True)
+    event_type_mapping=models.ForeignKey(EventTypeMapping, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return '%s' % (self.title)

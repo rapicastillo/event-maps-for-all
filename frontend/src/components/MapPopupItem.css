@@ -1,16 +1,16 @@
-.popup-item {
+#maps-for-all-content .popup-item {
       min-width: 300px;
       max-width: 350px;
       position: relative;
       font-family: var(--sans-serif);
 }
 
-.popup-item .event-bundled-items{
+#maps-for-all-content .popup-item .event-bundled-items{
     max-height: 240px;
     overflow: auto;
 }
 
-.popup-item .popup-close {
+#maps-for-all-content .popup-item .popup-close {
     position: absolute;
     right: 5px;
     top: 0px;
@@ -19,30 +19,30 @@
     font-weight: 800;
     font-size: 15px;
 }
-.popup-item .header-area {
+#maps-for-all-content .popup-item .header-area {
     padding: 10px;
     background-color: var(--light-blue);
 }
-.popup-item .content-area {
+#maps-for-all-content .popup-item .content-area {
     padding: 10px;
     font-family: var(--sans-serif);
 }
-.popup-item h1 {
+#maps-for-all-content .popup-item h1 {
     font-size: 18px;
     font-weight: 600;
     font-family: var(--sans-serif);
 }
 
-.popup-item h1 a {
+#maps-for-all-content .popup-item h1 a {
     color: var(--blue);
     text-decoration: none;
 }
 
-.popup-item h3 { margin-bottom: 0; }
-.popup-item h3 span { font-size: 14px; font-weight: 600; }
-.popup-item h3 img { width: 20px; }
-.popup-item h3 * { vertical-align: middle; }
-.popup-item sub {
+#maps-for-all-content .popup-item h3 { margin-bottom: 0; }
+#maps-for-all-content .popup-item h3 span { font-size: 14px; font-weight: 600; }
+#maps-for-all-content .popup-item h3 img { width: 20px; }
+#maps-for-all-content .popup-item h3 * { vertical-align: middle; }
+#maps-for-all-content .popup-item sub {
     text-transform: uppercase;
     font-size: 8px;
     line-height: 1;
@@ -50,7 +50,7 @@
     margin-right: 5px;
 }
 
-.popup-item .sponsor-area {
+#maps-for-all-content .popup-item .sponsor-area {
     padding-bottom: 10px;
     border-bottom: 1px solid var(--light-blue);
     margin-bottom: 10px;
@@ -59,7 +59,7 @@
     align-items: center;
 }
 
-.popup-item a.rsvp {
+#maps-for-all-content .popup-item a.rsvp {
     display: inline-block;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -75,12 +75,12 @@
 
 }
 
-.popup-item a.rsvp:hover {
+#maps-for-all-content .popup-item a.rsvp:hover {
     background-color: var(--blue);
     color: white;
 }
 
-.popup-item p {
+#maps-for-all-content .popup-item p {
     font-size: 14px;
     line-height: 24px;
 }

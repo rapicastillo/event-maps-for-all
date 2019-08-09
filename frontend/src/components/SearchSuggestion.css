@@ -1,4 +1,4 @@
-.search-suggestion-container {
+#maps-for-all-content .search-suggestion-container {
   position: absolute;
   z-index: 1000;
   top: 44px;
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.search-suggestion-container a {
+#maps-for-all-content .search-suggestion-container a {
   color: #333;
   text-decoration: none;
   width: 100%;

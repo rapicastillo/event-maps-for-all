@@ -12,7 +12,7 @@
     --highlight: #ff430f;
 }
 
-.btn {
+#maps-for-all-content .btn {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -30,7 +30,7 @@
     transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-a {
+#maps-for-all-content a {
   text-decoration: none;
 }
 
@@ -40,19 +40,19 @@ a {
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, #maps-for-all-content #maps-for-all-content div, #maps-for-all-content #maps-for-all-content span, #maps-for-all-content #maps-for-all-content applet, #maps-for-all-content #maps-for-all-content object, #maps-for-all-content #maps-for-all-content iframe, 
+#maps-for-all-content h1, #maps-for-all-content h2, #maps-for-all-content h3, #maps-for-all-content h4, #maps-for-all-content h5, #maps-for-all-content h6, #maps-for-all-content p, #maps-for-all-content blockquote, #maps-for-all-content pre, 
+#maps-for-all-content a, #maps-for-all-content abbr, #maps-for-all-content acronym, #maps-for-all-content address, #maps-for-all-content big, #maps-for-all-content cite, #maps-for-all-content code, 
+#maps-for-all-content del, #maps-for-all-content dfn, #maps-for-all-content em, #maps-for-all-content img, #maps-for-all-content ins, #maps-for-all-content kbd, #maps-for-all-content q, #maps-for-all-content s, #maps-for-all-content samp, 
+#maps-for-all-content small, #maps-for-all-content strike, #maps-for-all-content strong, #maps-for-all-content sub, #maps-for-all-content sup, #maps-for-all-content tt, #maps-for-all-content var, 
+#maps-for-all-content b, #maps-for-all-content u, #maps-for-all-content i, #maps-for-all-content center, 
+#maps-for-all-content dl, #maps-for-all-content dt, #maps-for-all-content dd, #maps-for-all-content ol, #maps-for-all-content ul, #maps-for-all-content li, 
+#maps-for-all-content fieldset, #maps-for-all-content form, #maps-for-all-content label, #maps-for-all-content legend, 
+#maps-for-all-content table, #maps-for-all-content caption, #maps-for-all-content tbody, #maps-for-all-content tfoot, #maps-for-all-content thead, #maps-for-all-content tr, #maps-for-all-content th, #maps-for-all-content td, 
+#maps-for-all-content article, #maps-for-all-content aside, #maps-for-all-content canvas, #maps-for-all-content details, #maps-for-all-content embed, 
+#maps-for-all-content figure, #maps-for-all-content figcaption, #maps-for-all-content footer, #maps-for-all-content header, #maps-for-all-content hgroup, 
+#maps-for-all-content menu, #maps-for-all-content nav, #maps-for-all-content output, #maps-for-all-content ruby, #maps-for-all-content section, #maps-for-all-content summary, 
+#maps-for-all-content time, #maps-for-all-content mark, #maps-for-all-content audio, #maps-for-all-content video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -61,25 +61,25 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+#maps-for-all-content article, #maps-for-all-content aside, #maps-for-all-content details, #maps-for-all-content figcaption, #maps-for-all-content figure, 
+#maps-for-all-content footer, #maps-for-all-content header, #maps-for-all-content hgroup, #maps-for-all-content menu, #maps-for-all-content nav, #maps-for-all-content section {
 	display: block;
 }
 body {
 	line-height: 1;
 }
-ol, ul {
+#maps-for-all-content ol, #maps-for-all-content ul {
 	list-style: none;
 }
-blockquote, q {
+#maps-for-all-content blockquote, #maps-for-all-content q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+#maps-for-all-content blockquote:before, #maps-for-all-content blockquote:after,
+#maps-for-all-content q:before, #maps-for-all-content q:after {
 	content: '';
 	content: none;
 }
-table {
+#maps-for-all-content table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }

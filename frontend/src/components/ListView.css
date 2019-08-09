@@ -1,8 +1,8 @@
 
-.event-list-container {
+#maps-for-all-content .event-list-container {
     flex-grow: 1;
     background-color: white; 
     overflow: auto;
-
+    display: flex;
     -webkit-overflow-scrolling: touch;
 }

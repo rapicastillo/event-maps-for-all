@@ -1,37 +1,37 @@
-.event-bundled-loc {
+#maps-for-all-content .event-bundled-loc {
     display: flex;
     padding: 10px;
     background-color: #f3ebff;
 }
 
-.event-bundled-loc img {
+#maps-for-all-content .event-bundled-loc img {
     width: 20px;
     height: 20px;
     opacity: 0.6;
     margin-right: 5px;
 }
-.event-bundled-loc div {
+#maps-for-all-content .event-bundled-loc div {
     flex-grow: 1;
     flex-basis: 0;
 }
 
-.event-bundled-loc div h1{
+#maps-for-all-content .event-bundled-loc div h1{
     font-size: 18px;
     letter-spacing: 0.6px;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
-.event-bundled-loc div h2 {
+#maps-for-all-content .event-bundled-loc div h2 {
     font-size: 13px;
 }
 
-.event-bundled-item.event-list-item-container {
+#maps-for-all-content .event-bundled-item.event-list-item-container {
     margin-left: 20px;
     padding: 5px 10px 5px;
 }
 
-.event-bundled-item.event-list-item-container .event-list-item-date .event-list-date-view {
+#maps-for-all-content .event-bundled-item.event-list-item-container .event-list-item-date .event-list-date-view {
     margin-top: 0;
     width: 50px;
 
@@ -40,32 +40,32 @@
     
     line-height: 13px;
 }
-.event-bundled-item.event-list-item-container .event-list-item-date {
+#maps-for-all-content .event-bundled-item.event-list-item-container .event-list-item-date {
     width: 55px;
 }
 
-.event-bundled-item.event-list-item-container .event-list-date-data {
+#maps-for-all-content .event-bundled-item.event-list-item-container .event-list-date-data {
     font-size: 14px;
     font-weight: 600;
 }
 
-.event-bundled-item.event-list-item-container .event-list-day-data {
+#maps-for-all-content .event-bundled-item.event-list-item-container .event-list-day-data {
     font-size: 10px;
     font-weight: 400;
 }
 
-.event-bundled-item.event-list-item-container .event-list-month-data {
+#maps-for-all-content .event-bundled-item.event-list-item-container .event-list-month-data {
     font-size: 11px;
     letter-spacing: 1px;
 }
 
-.event-list-item-container .event-list-item-desc.event-list-item-event-type {
+#maps-for-all-content .event-list-item-container .event-list-item-desc.event-list-item-event-type {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0;
 }
-.event-bundled-item.event-list-item-container a.event-list-item-cta-btn {
+#maps-for-all-content .event-bundled-item.event-list-item-container a.event-list-item-cta-btn {
     background-color: transparent;
     border-color: var(--blue);
     border-width: 2px;

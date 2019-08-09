@@ -1,12 +1,12 @@
 
-div.host-btn-container {
+#maps-for-all-content div.host-btn-container {
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 1000;
 }
 
-div.host-btn-container a.host-btn {
+#maps-for-all-content div.host-btn-container a.host-btn {
     
     display: inline-block;
     
@@ -26,19 +26,19 @@ div.host-btn-container a.host-btn {
     color: white;
 }
 
-div.host-btn-container a.host-btn:hover {
+#maps-for-all-content div.host-btn-container a.host-btn:hover {
     background-color: var(--highlight);
     color: var(--blue);
 }
 
 @media screen and (max-width: 600px) {
-    div.host-btn-container { 
+    #maps-for-all-content div.host-btn-container { 
         position: relative;
         top: auto;
         right: auto;
     }    
 
-    div.host-btn-container a.host-btn {
+    #maps-for-all-content div.host-btn-container a.host-btn {
         width: 100%;
         padding: 16px 0;
         text-align: center;

@@ -1,23 +1,28 @@
-
+#maps-for-all-content 
 .search-container {
     background-color: var(--bluish-gray);
     border-bottom: 1px solid var(--gray);
     font-family: var(--sans-serif);
 }
 
+#maps-for-all-content 
 .search-viewport {
     padding: 10px;
     position: relative;
 }
+#maps-for-all-content 
 .search-form {
     display: flex;
     
 }
 
+#maps-for-all-content 
 .search-form .search-input {
   position: relative;
   flex-grow: 1;
 }
+
+#maps-for-all-content 
 .search-text {
     display: block;
     width: 100%;
@@ -37,6 +42,7 @@
     font-family: var(--sans-serif);
 }
 
+#maps-for-all-content 
 .search-btn {
     height: 25px;
     border-radius: 0 4px 4px 0;
@@ -52,10 +58,12 @@
     border: 1px solid var(--blue);
     font-family: var(--sans-serif);
 }
+#maps-for-all-content 
 .search-btn:hover {
     color: white;
 }
 
+#maps-for-all-content 
 .filter-form ul {
     display: flex;
     flex-direction: row;
@@ -63,12 +71,15 @@
     margin-top: 5px;
 }
 
+#maps-for-all-content 
 .filter-form ul li {
     margin: 2px 2px 2px 0;
     border-radius: 2px;
     border: 1px solid var(--lightgray);
 }
 
+
+#maps-for-all-content 
 .filter-form ul li label {
     font-size: 10px;
     text-transform: uppercase;
@@ -80,6 +91,7 @@
     cursor: pointer;
 }
 
+#maps-for-all-content 
 .filter-form ul li label img{
     height: 14px;
     margin-right: 4px;
@@ -88,10 +100,12 @@
     opacity: 0.5;
 }
 
+#maps-for-all-content 
 .filter-form ul li input {
     display: none;
 }
 
+#maps-for-all-content 
 .filter-form ul li input:checked + label {
     /* color: blue; */
     font-weight: 600;
@@ -101,19 +115,19 @@
     align-items: center; 
 }
 
-.filter-form ul li input + label {
+#maps-for-all-content .filter-form ul li input + label {
     padding: 4px;
     color: gray;
 }
-.filter-form ul li input + label .event-check {
+#maps-for-all-content .filter-form ul li input + label .event-check {
     display: none
 }
 
-.filter-form ul li input:checked + label .event-check { 
+#maps-for-all-content .filter-form ul li input:checked + label .event-check { 
     display: block;
 }
 
-.filter-form ul li input:checked + label img {
+#maps-for-all-content .filter-form ul li input:checked + label img {
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
     opacity: 1;

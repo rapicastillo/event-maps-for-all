@@ -35,7 +35,6 @@ class SearchContainer extends React.Component {
     }
 
     if (!query.get("zipcode") && !query.get("types")) {
-      console.log("TEST");;
       // this.props.updateMap(null, [ -73.834, 40.676], [10]);
     }
 

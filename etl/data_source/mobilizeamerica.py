@@ -1,7 +1,8 @@
 from etl.models import MobilizeAmericaIntegration, \
                        MobilizeAmericaEvent, \
                        MobilizeAmericaEventType, \
-                       EventType
+                       EventType, \
+                        EventTypeMapping
 from django.utils.text import slugify
 from dateutil.parser import parse
 from datetime import datetime, timedelta
@@ -25,6 +26,8 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
     """
     Get Event Type
     """
+    event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=event_type)
+
     mobilize_event_type = MobilizeAmericaEventType \
                             .objects \
                             .get_or_create( \
@@ -33,7 +36,8 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
                                 title=event_type,
                                 slug=slugify(event_type),
                                 mobilize_event_type=event_type, 
-                                mobilize_america_integration=mobilize_america
+                                mobilize_america_integration=mobilize_america,
+                                event_type_mapping=event_type_mapping[0]
                             )
 
     print("mobilize_event_type --> ", mobilize_event_type[0])

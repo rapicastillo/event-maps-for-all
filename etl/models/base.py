@@ -10,7 +10,7 @@ class Integration(models.Model):
         return '%s' % (self.alias)
 
 class EventTypeMapping(models.Model):
-    display_name=models.CharField(max_length=200, null=True)
+    display_name=models.CharField(max_length=200, unique=True, null=True)
 
     def __str__(self):
         return self.display_name

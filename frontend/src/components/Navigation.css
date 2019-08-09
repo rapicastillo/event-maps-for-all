@@ -11,22 +11,27 @@
     /* position: fixed; */
     z-index: 1000;
     -webkit-backface-visibility: hidden;
-    background-color: #f5f5f5;
+    background-color: var(--blue);
 
 }
 
 .navigation .navigation-area a.logo-area {
     position: relative;
 }
+
+.navigation .navigation-area a.logo-area img {
+    width: 150px;
+}
 .navigation .navigation-area a.logo-area:before {
     content: 'Events';
-    background-color: var(--blue);
-    color: white;
+    color: var(--blue);
+    background-color: white;
     font-weight: 800;
     position: absolute;
-    padding: 5px;
-    bottom: 8px;
-    right: 110px;
+    padding: 2px;
+    bottom: 15px;
+    right: -30px;
+    transform: rotate(-12deg);
 }
 
 .navigation .navigation-area {
@@ -76,15 +81,19 @@
 
     .navigation .navigation-area {
         width: 100%;
+        padding: 0;
+
     }
 
     .navigation .navigation-area .logo-img {
-        width: 220px !important;
+        width: 150px !important;
     }
 
     .navigation .navigation-area a.logo-area:before {
-        bottom: 2px;
-        right: 40px;
+        bottom: 15px;
+        right: -30px;
+        transform: rotate(-12deg);
+    
     }
 
     .navigation nav {

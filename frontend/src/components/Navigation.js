@@ -40,7 +40,19 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
                   <img src={WFPLogo} width='200px' />
                 </a>
               </li>
-              <li><a href='https://cabanforqueens.com/about'>About</a></li>
+              <li className='donate-area'>
+              <a href='https://dalmatian-capybera-5lk2.squarespace.com/watchparties' className='donate-button'>Host an Event</a>
+              </li>
+              </ul>
+            </div>
+          </nav>
+        }
+      </div>
+    </header>
+  )
+
+/**
+ *               <li><a href='https://cabanforqueens.com/about'>About</a></li>
               <li>
                 <a href='https://cabanforqueens.com/issues'>Issues</a>
               </li>
@@ -50,13 +62,5 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
               <li>
                 <a href='https://cabanforqueens.com/map'>Volunteer</a>
               </li>
-              <li className='donate-area'>
-                <a href='https://cabanforqueens.com/donate' className='donate-button'>Contribute</a>
-              </li>
-              </ul>
-            </div>
-          </nav>
-        }
-      </div>
-    </header>
-  )
+
+ */

@@ -64,7 +64,6 @@ class SearchContainer extends React.Component {
 
   handleHistoryPush(types){
     const source = this.props.source;
-    console.log(types);
     history.push(`?q=${this.state.searchQuery?`&zipcode=${this.state.searchQuery}`:''}${types&&types.length>0?`&types=${types.join(',')}`:''}${source?`&source=${source}`:''}`);
   }
 

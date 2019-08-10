@@ -17,4 +17,5 @@ export const Viewport = styled.div`
     display: flex;
     flex-direction: row;
     flex-basis: 0;
+    height: 100%;
 `;

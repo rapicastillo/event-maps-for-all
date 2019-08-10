@@ -26,7 +26,7 @@ export default ({
                 />
             </form>
 
-            <form className='filter-form'>
+            <form className='filter-form' style={{display: eventTypes.length > 1 ? 'block' : 'none'}}>
                 <ul>
                     {
                         eventTypes.map(eventType => (

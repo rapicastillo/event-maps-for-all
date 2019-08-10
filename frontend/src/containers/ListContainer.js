@@ -70,12 +70,14 @@ const mapStateToProps = ({ events, search }) => {
     if (eventsData.length == 0) {
         closestEvents = getClosestEvents(events, search)
     }
-
+    console.log("search.searchQuery, search.activeFilters", search.searchQuery == '' ? '<BLANK>' : search.searchQuery,  search.activeFilters);
+    
     return {
         activeFilters: search.activeFilters,
         center: search.center,
         eventsData: eventsData.length == 0 ? closestEvents : eventsData,
         eventTypes: events.eventTypes,
+        searchQuery: search.searchQuery,
         sourceParam: search.sourceParam
     };
 }

@@ -130,7 +130,7 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
             mobilize_et = _get_event_type(event_type, integration)
 
         
-
+        event_id = event['id']
         for timeslot in event['timeslots']:
             created_date = datetime.fromtimestamp(event['created_date'])
             created_date = utc_timezone.localize(created_date)
@@ -148,7 +148,7 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
             if datetime_start < days_ago:
                 continue
 
-            timeslot_id = timeslot['id']
+            timeslot_id = "%s-%s" % (event_id, timeslot['id'])
 
             mobilize_events.append(
                 MobilizeAmericaEvent(

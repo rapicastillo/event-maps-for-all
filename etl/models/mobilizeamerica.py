@@ -28,4 +28,4 @@ class MobilizeAmericaEvent(Event):
     visibility=models.CharField(max_length=100, null=True)
     virtual_action_url=models.CharField(max_length=500, null=True)
     featured_image_url=models.CharField(max_length=200, null=True)
-    timeslot_id=models.IntegerField(unique=True, null=True)
+    timeslot_id=models.CharField(max_length=100, unique=True, null=True)

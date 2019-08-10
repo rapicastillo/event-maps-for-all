@@ -8,7 +8,7 @@ import {
 import zipcodes from '../assets/data/zipcodes.json';
 
 const defaultState = {
-    searchQuery: '',
+    searchQuery: null,
     activeFilters: null,
     zoom: null,
     center: null,

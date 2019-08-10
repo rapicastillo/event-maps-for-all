@@ -17,7 +17,7 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
         <nav>
           <ul className='link-list'>   
             <li className='donate-area'>
-              <a href='https://dalmatian-capybera-5lk2.squarespace.com/watchparties' className='donate-button'>Host an Event</a>
+              <a href='https://wfp2020.org/watchparties' className='donate-button'>Host an Event</a>
             </li>
          
             <li className='mobile-nav-open'>
@@ -41,7 +41,7 @@ export default ({ handleNavClose, showBigCircle, handleNavOpen, isMobileNavVisib
                 </a>
               </li>
               <li className='donate-area'>
-              <a href='https://dalmatian-capybera-5lk2.squarespace.com/watchparties' className='donate-button'>Host an Event</a>
+              <a href='https://wfp2020.org/watchparties' className='donate-button'>Host an Event</a>
               </li>
               </ul>
             </div>

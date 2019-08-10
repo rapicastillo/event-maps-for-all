@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Router, Route, Link } from "react-router-dom";
 import ReactPixel from 'react-facebook-pixel'
+import {Helmet} from "react-helmet";
 
 import { connect } from 'react-redux';
 import i18n from '../hoc/i18n';
@@ -62,6 +63,11 @@ class Megamap extends React.Component {
                 <Route exact path="/" render={props => (
 
                     <Page>
+                        <Helmet>
+                            <meta charSet="utf-8" />
+                            <title>WFP2020 — Events Map</title>
+                            <link rel="shortcut icon" type="image/x-icon" href="https://static1.squarespace.com/static/5d025ca71bf64800012effd7/t/5d447aa0ac2a040001857a9b/favicon.ico"/>
+                        </Helmet>
                         <Navigation
                             handleNavOpen={this.handleNavOpen.bind(this)}
                             handleNavClose={this.handleNavClose.bind(this)}

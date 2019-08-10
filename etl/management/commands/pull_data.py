@@ -11,7 +11,6 @@ class Command(BaseCommand):
         integrations = Integration.objects.filter(is_active=True)
 
         for integration in integrations:
-            print("Pulling action network events: ", integration)
             if hasattr(integration, "actionnetworkintegration"):
                 an = integration.actionnetworkintegration
                 actionnetwork.pull_actionnetwork_events(an)

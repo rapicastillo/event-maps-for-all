@@ -24,7 +24,7 @@ class EventsListView(APIView):
 
         events = Event.objects.filter(datetime_start__gt=days_ago)
         event_types = set([e.event_type for e in events if not e.event_type is None])
-        event_type_mappings = set([e.event_type.event_type_mapping for e in events if not e.event_type is None])
+        event_type_mappings = filter(None, set([e.event_type.event_type_mapping for e in events if not e.event_type is None]))
 
         events_serializer = EventSerializer(events, many=True)
         event_type_serializer = EventTypeSerializer(event_types, many=True)
@@ -43,7 +43,6 @@ class FrontendAppView(APIView):
     index_file_path = os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')
 
     def get(self, request):
-        print("!!!", self.index_file_path)
         try:
             with open(self.index_file_path) as f:
                 return HttpResponse(f.read())

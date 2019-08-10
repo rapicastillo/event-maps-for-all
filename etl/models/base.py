@@ -23,7 +23,7 @@ class EventType(models.Model):
     event_type_mapping=models.ForeignKey(EventTypeMapping, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return '%s' % (self.title)
+        return "%s - %s" % (self.integration.alias, self.title)
 
 class Event(models.Model):
     """

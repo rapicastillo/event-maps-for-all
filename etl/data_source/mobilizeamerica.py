@@ -27,29 +27,29 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
     Get Event Type
     """
 
-    try:
-        
-        mobilize_event_type = MobilizeAmericaEventType \
-                            .objects \
-                            .get_or_create( \
-                                integration=mobilize_america,
-                                name=event_type,
-                                title=event_type,
-                                slug=slugify(event_type),
-                                mobilize_event_type=event_type, 
-                                mobilize_america_integration=mobilize_america,
-                            )
+    # try:
+    mobilize_event_type = MobilizeAmericaEventType \
+                        .objects \
+                        .get_or_create( \
+                            integration=mobilize_america,
+                            name=event_type,
+                            title=event_type,
+                            slug=slugify(event_type),
+                            mobilize_event_type=event_type, 
+                            mobilize_america_integration=mobilize_america,
+                        )
+    
+    is_created = mobilize_event_type[1]
+    target = mobilize_event_type[0]
+    if is_created:
+        event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=event_type)
+        target.event_type_mapping = event_type_mapping[0]
+        target.save()
 
-        is_created = mobilize_event_type[1]
-        if is_created:
-            event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=event_type)
-            mobilize_event_type.event_type_mapping = event_type_mapping[0]
-            mobilize_event_type.save()
-            
-        # print("mobilize_event_type --> ", mobilize_event_type[0])
-        return mobilize_event_type[0]
-    except Exception as e:
-        print("Error creating event type: ", str(e))
+    # print("mobilize_event_type --> ", mobilize_event_type[0])
+    return target
+    # except Exception as e:
+    #     print("Error creating event type: ", str(e))
 
     
     
@@ -137,14 +137,12 @@ def _store_events(events:list, integration:MobilizeAmericaIntegration):
 
             datetime_start = datetime.fromtimestamp(timeslot['start_date'])
 
-            print("datetime_start BEFORE == ", datetime_start)
             datetime_start = utc_timezone.localize(datetime_start)
             datetime_start = datetime_start.astimezone(locale).replace(tzinfo=None)
 
             datetime_end = datetime.fromtimestamp(timeslot['end_date'])
             datetime_end = utc_timezone.localize(datetime_end)
             # datetime_end = locale.localize(datetime_end)
-            print("datetime_start AFTER == ", datetime_start, utc_timezone, "\n")
             # compare_time = utc_timezone.localize(days_ago)
             # compare_time = locale.localize(compare_time)
             if datetime_start < days_ago:

@@ -26,9 +26,10 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
     """
     Get Event Type
     """
-    event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=event_type)
 
-    mobilize_event_type = MobilizeAmericaEventType \
+    try:
+        
+        mobilize_event_type = MobilizeAmericaEventType \
                             .objects \
                             .get_or_create( \
                                 integration=mobilize_america,
@@ -37,11 +38,20 @@ def _get_event_type(event_type:str, mobilize_america:MobilizeAmericaIntegration)
                                 slug=slugify(event_type),
                                 mobilize_event_type=event_type, 
                                 mobilize_america_integration=mobilize_america,
-                                event_type_mapping=event_type_mapping[0]
                             )
 
-    # print("mobilize_event_type --> ", mobilize_event_type[0])
-    return mobilize_event_type[0]
+        is_created = mobilize_event_type[1]
+        if is_created:
+            event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=event_type)
+            mobilize_event_type.event_type_mapping = event_type_mapping[0]
+            mobilize_event_type.save()
+            
+        # print("mobilize_event_type --> ", mobilize_event_type[0])
+        return mobilize_event_type[0]
+    except Exception as e:
+        print("Error creating event type: ", str(e))
+
+    
     
 
 def _get_events(organization_id:str):

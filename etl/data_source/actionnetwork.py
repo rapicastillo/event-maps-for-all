@@ -120,8 +120,8 @@ def _store_events(events:list, integration:ActionNetworkIntegration, event_campa
         start_date=parse(event["start_date"])
         start_date = start_date.replace(tzinfo=None)
 
-        # if start_date < days_ago:
-        #     continue
+        if start_date < days_ago:
+            continue
 
         if "location" not in event:
             event["location"] = {}
@@ -183,34 +183,36 @@ def _store_event_campaigns(event_campaigns:list, integration:ActionNetworkIntegr
     actionnetwork_ec = []
 
     for ec in event_campaigns:
-        event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=ec['name'])
-        event_type_mapping = event_type_mapping[0]
-        actionnetwork_ec.append(
-            ActionNetworkEventCampaign(
-                name=ec["name"] if "name" in ec else None,
-                slug=slugify(ec["title"]) if "title" in ec else None,
-                integration=integration,
-                title=ec["title"] if "title" in ec else None,
-                actionnetwork_id=ec["identifiers"][0] if "identifiers" in ec else None,
-                description=ec["description"] if "description" in ec else None,
-                host_pitch=ec["host_pitch"] if "host_pitch" in ec else None,
-                host_instructions=ec["host_instructions"] if "host_instructions" in ec else none,
-                total_events=ec["total_events"] if "total_events" in ec else None,
-                total_rsvps=ec["total_rsvps"] if "total_rsvps" in ec else None,
-                events_url=ec["_links"]["osdi:events"]["href"],
-                host_url=ec["host_url"] if "host_url" in ec else None,
-                an_name=ec["name"] if "name" in ec else None,
-                an_title=ec["title"] if "title" in ec else None,
-                event_type_mapping=event_type_mapping
-            )
+        
+        event_campaign = ActionNetworkEventCampaign.objects.get_or_create(
+            name=ec["name"] if "name" in ec else None,
+            slug=slugify(ec["title"]) if "title" in ec else None,
+            integration=integration,
+            title=ec["title"] if "title" in ec else None,
+            actionnetwork_id=ec["identifiers"][0] if "identifiers" in ec else None,
+            description=ec["description"] if "description" in ec else None,
+            host_pitch=ec["host_pitch"] if "host_pitch" in ec else None,
+            host_instructions=ec["host_instructions"] if "host_instructions" in ec else none,
+            total_events=ec["total_events"] if "total_events" in ec else None,
+            total_rsvps=ec["total_rsvps"] if "total_rsvps" in ec else None,
+            events_url=ec["_links"]["osdi:events"]["href"],
+            host_url=ec["host_url"] if "host_url" in ec else None,
+            an_name=ec["name"] if "name" in ec else None,
+            an_title=ec["title"] if "title" in ec else None,
         )
 
-    for ec in actionnetwork_ec:
-        try:
-            ec.save()
-            print("Creating :: ", ec.events_url)
-        except Exception as e:
-            print("Error: ", str(e))
+        created = event_campaign[1]
+        if created:
+            event_type_mapping = EventTypeMapping.objects.get_or_create(display_name=ec['name'])
+            event_type_mapping = event_type_mapping[0]
+            event_type_mapping.save()
+
+    # for ec in actionnetwork_ec:
+    #     try:
+    #         ec.save()
+    #         print("Creating :: ", ec.events_url)
+    #     except Exception as e:
+    #         print("Error: ", str(e))
             # try: 
             #     update_ec = ActionNetworkEventCampaign.objects.get(actionnetwork_id=ec.actionnetwork_id)
             #     ec.id = update_ec.id

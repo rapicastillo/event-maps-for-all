@@ -55,7 +55,6 @@ class MapView extends React.Component {
 
     // this.props.showVolunteer ? 'visible' : 'none',
     render() {
-        console.log(this.props.eventsData);
         return (<div className='map-area'>
           <Map
             ref={e => {

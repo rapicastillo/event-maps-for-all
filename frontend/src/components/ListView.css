@@ -6,3 +6,7 @@
     display: flex;
     -webkit-overflow-scrolling: touch;
 }
+
+#maps-for-all-content .event-list {
+    width: 100%;
+}

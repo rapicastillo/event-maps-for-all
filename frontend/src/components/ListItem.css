@@ -6,6 +6,7 @@
     margin-top: 5px;
     margin-bottom: 3px;
     background-color: whitesmoke;
+    width: calc(100% - 5px);
 }
 
 #maps-for-all-content .event-list-item:first-child {
@@ -14,4 +15,5 @@
 
 #maps-for-all-content .event-list-item:last-child {
     margin-bottom: 0;
+    
 }

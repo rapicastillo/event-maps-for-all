@@ -19,7 +19,7 @@ class EventsListView(APIView):
 
     def get(self, request, format=None):
 
-        days_ago = datetime.now() - timedelta(days=7)
+        days_ago = datetime.now() - timedelta(days=1)
         days_ago = days_ago.replace(tzinfo=None)
 
         events = Event.objects.filter(datetime_start__gt=days_ago)

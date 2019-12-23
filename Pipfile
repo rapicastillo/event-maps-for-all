@@ -46,7 +46,7 @@ MarkupSafe = "==1.0"
 Pygments = "==2.2.0"
 PyGreSQL = "==5.0.6"
 PyMySQL = "==0.9.2"
-PyYAML = "==3.13"
+PyYAML = "==5.1"
 
 [requires]
 python_version = "3.6"

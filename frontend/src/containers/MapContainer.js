@@ -45,6 +45,8 @@ class MapContainer extends React.Component {
           bounds={this.props.bounds}
           zoom={this.props.zoom}
 
+          initialBounds={[[-74.257159, 40.915568], [-73.699215, 40.495992]]}
+
           handleMapChange={this.handleMapChange.bind(this)}
           handleMapLoad={this.handleMapLoad.bind(this)}
 

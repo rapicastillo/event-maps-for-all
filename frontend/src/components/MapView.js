@@ -38,6 +38,8 @@ class MapView extends React.Component {
 
       this.props.center && map.setCenter({ lng: this.props.center[0], lat: this.props.center[1] });
       this.props.center && map.setZoom(14);
+
+      this.props.initialBounds && map.fitBounds(this.props.initialBounds, {animate: false})
     }
 
     renderPopup () {

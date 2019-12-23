@@ -1,4 +1,36 @@
-# Python: Getting Started
+# Event Maps for All
+
+Creates an event map for your organization / campaign. Makes it easier for volunteers to find an event!
+
+# Setup 
+
+### Deploy this to Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+You wil add your project name, and get the necessary prompts
+
+### Set up scheduled jobs
+
+1. Go to `https://dashboard.heroku.com/apps/<YOUR_APP_NAME>/scheduler` (replace `<YOUR_APP_NAME>` with the name of your app)
+2. Add `python manage.py pull_data` to the jobs. Set the frequency of the job
+
+# Development
+
+Frontend's in React and is already included in this package
+
+## IF you'd like to contribute, be sure to do the following:
+
+1. Run `pipenv install`
+
+### .env
+```
+export DB_NAME=<dbname>
+export DB_PASSWORD=
+export DB_HOST=localhost
+export DB_PORT=3306
+export DB_USER=root
+```
 
 A barebones Django app, which can easily be deployed to Heroku.
 
@@ -34,12 +66,3 @@ $ git push heroku master
 $ heroku run python manage.py migrate
 $ heroku open
 ```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)

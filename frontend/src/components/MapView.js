@@ -58,6 +58,7 @@ class MapView extends React.Component {
     // this.props.showVolunteer ? 'visible' : 'none',
     render() {
         return (<div className='map-area'>
+          {console.log("vthis.props.eventsData >> ", this.props.eventsData)}
           <Map
             ref={e => {
               this.map = e
@@ -85,7 +86,7 @@ class MapView extends React.Component {
                   }}
                   paint={{
                     "circle-radius": 5,
-                    "circle-color": "#003b4d",
+                    "circle-color": "#e35c04",
                     "circle-stroke-width": 2,
                     "circle-stroke-color": "white"
                   }}>

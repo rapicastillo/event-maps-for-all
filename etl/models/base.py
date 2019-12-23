@@ -31,6 +31,7 @@ class Event(models.Model):
     """
     title=models.CharField(max_length=100,null=True)
     venue=models.CharField(max_length=100, null=True)
+    information=models.TextField(null=True)
     address1=models.CharField(max_length=100,null=True)
     address2=models.CharField(max_length=100,null=True)
     city=models.CharField(max_length=100,null=True)

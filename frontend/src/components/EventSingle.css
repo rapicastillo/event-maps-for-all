@@ -19,6 +19,12 @@
     flex-basis: 0;
 }
 
+#maps-for-all-content .event-list-item-container .event-information p {
+    line-height: 1.25;
+    margin-bottom: 4px;
+    font-size: 11px;
+}  
+
 #maps-for-all-content .event-list-item-container .event-list-item-date {
     color: var(--darkgray);
     font-size: 14px;

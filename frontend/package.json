@@ -23,6 +23,7 @@
     "react-geocode": "^0.1.2",
     "react-helmet": "^5.2.1",
     "react-mapbox-gl": "^4.2.0",
+    "react-markdown": "^4.2.2",
     "react-moment": "^0.8.4",
     "react-redux": "^6.0.0",
     "react-router": "^5.0.0",

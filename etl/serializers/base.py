@@ -19,7 +19,7 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('title', 'venue', 'address1', 'address2', 'url', \
+        fields = ('title', 'venue', 'information', 'address1', 'address2', 'url', \
                     'city', 'state', 'country', 'zipcode', \
                     'datetime_start', 'datetime_end', 'event_type', \
                     'latitude', 'longitude' )

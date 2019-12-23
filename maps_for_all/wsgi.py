@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wfp_etl.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "maps_for_all.settings")
 
 from django.core.wsgi import get_wsgi_application
 

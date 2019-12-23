@@ -1,1 +1,1 @@
-web: gunicorn wfp_etl.wsgi --log-file -
+web: gunicorn maps_for_all.wsgi --log-file -

@@ -65,8 +65,8 @@ class Megamap extends React.Component {
                     <Page>
                         <Helmet>
                             <meta charSet="utf-8" />
-                            <title>WFP2020 — Events Map</title>
-                            <link rel="shortcut icon" type="image/x-icon" href="https://static1.squarespace.com/static/5d025ca71bf64800012effd7/t/5d447aa0ac2a040001857a9b/favicon.ico"/>
+                            <title>Maps for all</title>
+                            <link rel="shortcut icon" type="image/x-icon" />
                         </Helmet>
                         <Viewport>
                             <ListArea>
